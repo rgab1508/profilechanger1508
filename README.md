@@ -22,3 +22,9 @@
 ### REQUIREMENTS
 * [nodejs](https://nodejs.org)
 * [Twitter developer account](https://developer.twitter.com/)
+
+### BUILT WITH
+* [nodejs](https://nodejs.org)
+* [Twit](https://www.npmjs.com/package/twit)
+* [svg-to-img](https://www.npmjs.com/package/svg-to-img)
+* [axios](https://www.npmjs.com/package/axios)
