@@ -4,11 +4,11 @@
 ### INSTALLATION
 * clone the repository
 ```bash
-    git clone https://github.com/rgab1508/profilechanger1508.git
+git clone https://github.com/rgab1508/profilechanger1508.git
 ```
 * install requirements
 ```bash
-    npm intall
+npm intall
 ```
 * change file name from .env-example to .env
 * put the api keys in the .env file
@@ -16,7 +16,7 @@
 ### USAGE
 
 ```bash
-    npm start
+npm start
 ```
 
 ### REQUIREMENTS
