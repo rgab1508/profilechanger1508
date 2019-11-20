@@ -1,6 +1,3 @@
-const buffer = require('buffer');
-const path = require('path');
-const fs = require('fs');
 const Twit = require("twit");
 const axios = require("axios");
 const dotenv = require("dotenv");
@@ -44,10 +41,10 @@ class Avatar {
         if (this.sprite == this.sprites[4]) {
             let rndColor = this.colors[getRandomInt(this.colors.length)];
             let colorful = true;
-            let mouthChance = Math.random() * 100; // number 100 Probability in percent
-            let sidesChance = Math.random() * 100; //number 100 Probability in percent
-            let textureChance = Math.random() * 100; // number 50 Probability in percent
-            let topChange = Math.random() * 100; // number 100 Probability in percent
+            let mouthChance = Math.random() * 100;
+            let sidesChance = Math.random() * 100;
+            let textureChance = Math.random() * 100;
+            let topChange = Math.random() * 100;
             this.url = `https://avatars.dicebear.com/v2/${this.sprite}/${this.randomSeed}.svg?options[colors][]=${rndColor}&options[mouthChance]=${mouthChance}&options[sidesChance]=${sidesChance}&options[textureChance]=${textureChance}&options[topChance]=${topChange}`;
         }
         if (this.sprite == this.sprites[5]) {
@@ -63,10 +60,8 @@ class Avatar {
             this.url = `https://avatars.dicebear.com/v2/${this.sprite}/${this.randomSeed}.svg?options[hatColor]=${hatColor}&options[hairColor]=${hairColor}&opitons[cloths]=${cloths}&options[eyes]=${eyes}`;
         }
         if (this.sprite == this.sprites[6]) {
-            //colorLightness array of two numbers between 0 and 1 null Colored shapes - Lightness
-            //this.grayscaleLightness array of two numbers between 0 and 1 null Grayscale shapes - Lightness
-            let colorSaturation = Math.random(); // number between 0 and 1 null Colored shapes - Saturation
-            let grayscaleSaturation = Math.random(); // number between 0 and 1
+            let colorSaturation = Math.random();
+            let grayscaleSaturation = Math.random();
 
             this.url = `https://avatars.dicebear.com/v2/${this.sprite}/${this.randomSeed}.svg?options[background]=#333&options[colorSaturation]=${colorSaturation}&options[grayscaleSaturation]=${grayscaleSaturation}`
         }
@@ -90,10 +85,6 @@ let T = new Twit({
 console.log(avatar.url);
 axios.get(avatar.url)
     .then((response) => {
-        // handle success
-        //profile_img = response.data;
-        //decode_base64(response.data, `${rn}.png`);
-        //console.log(response.data)
         console.log("got response from avatars");
         (async() => {
             const image = await svgToImg.from(response.data).toJpeg({
@@ -106,13 +97,11 @@ axios.get(avatar.url)
 
     })
     .catch((error) => {
-        // handle error
         console.log(error);
     })
 
 
 function updateProfilePic(img) {
-    //console.log(img);
 
     let params = { image: img }
     T.post('account/update_profile_image', params, (err, data, response) => {
