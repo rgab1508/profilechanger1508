@@ -28,3 +28,4 @@ npm start
 * [Twit](https://www.npmjs.com/package/twit)
 * [svg-to-img](https://www.npmjs.com/package/svg-to-img)
 * [axios](https://www.npmjs.com/package/axios)
+* [Dropbear Avatars](https://avatars.dicebear.com/)
