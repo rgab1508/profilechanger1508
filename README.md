@@ -6,6 +6,10 @@
 ```bash
 git clone https://github.com/rgab1508/profilechanger1508.git
 ```
+* go to the directory
+```bash
+cd profilechanger1508
+```
 * install requirements
 ```bash
 npm intall
