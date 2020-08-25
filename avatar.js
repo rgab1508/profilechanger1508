@@ -45,13 +45,12 @@ class Avatar {
 	}
 	setOptionsAndUrl() {
 		if (
-			this.sprite == this.sprites[0] ||
-			this.sprite == this.sprites[1] 
+			this.sprite == this.sprites[0]
 		) {
 			let mood = this.moods[getRandomInt(this.moods.length)];
 			this.url = `https://avatars.dicebear.com/v2/${this.sprite}/${this.randomSeed}.svg?options[mood][]=${mood}`;
 		}
-		if (this.sprite == this.sprites[3]) {
+		if (this.sprite == this.sprites[1]) {
 			let rndColor = this.colors[getRandomInt(this.colors.length)];
 			let rndColorLevel = this.colorLevel[getRandomInt(this.colorLevel.length)];
 
