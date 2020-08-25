@@ -5,13 +5,11 @@ class Avatar {
 	constructor() {
 		this.sprites = [
 			'male',
-			'human',
 			'identicon',
 			'bottts',
-			'avataaars',
 			'jdenticon',
 			'gridy'
-		]; //, "female"];
+		]; //"human", "avataaars", "female"];
 		this.moods = ['happy', 'sad', 'suprised'];
 		this.colors = [
 			'amber',
@@ -43,12 +41,12 @@ class Avatar {
 	}
 	selectSprite() {
 		this.sprite = this.sprites[getRandomInt(this.sprites.length)];
+		console.log(this.sprite);
 	}
 	setOptionsAndUrl() {
 		if (
 			this.sprite == this.sprites[0] ||
-			this.sprite == this.sprites[1] ||
-			this.sprite == this.sprites[2]
+			this.sprite == this.sprites[1] 
 		) {
 			let mood = this.moods[getRandomInt(this.moods.length)];
 			this.url = `https://avatars.dicebear.com/v2/${this.sprite}/${this.randomSeed}.svg?options[mood][]=${mood}`;
@@ -59,7 +57,7 @@ class Avatar {
 
 			this.url = `https://avatars.dicebear.com/v2/${this.sprite}/${this.randomSeed}.svg?options[colors][]=${rndColor}&options[colorLevel]=${rndColorLevel}`;
 		}
-		if (this.sprite == this.sprites[4]) {
+		if (this.sprite == this.sprites[2]) {
 			let rndColor = this.colors[getRandomInt(this.colors.length)];
 			let colorful = true;
 			let mouthChance = Math.random() * 100;
@@ -68,7 +66,7 @@ class Avatar {
 			let topChange = Math.random() * 100;
 			this.url = `https://avatars.dicebear.com/v2/${this.sprite}/${this.randomSeed}.svg?options[colors][]=${rndColor}&option[mouthChance]=${mouthChance}&opiton[sidesChance]=${sidesChance}&option[textureChance]=${textureChance}&option[topChance]=${topChange}`;
 		}
-		if (this.sprite == this.sprites[5]) {
+		/*if (this.sprite == this.sprites[5]) {
 			let hatColors = [
 				'black',
 				'blue',
@@ -110,14 +108,14 @@ class Avatar {
 			let eyes = eyess[getRandomInt(eyess.length)];
 
 			this.url = `https://avatars.dicebear.com/v2/${this.sprite}/${this.randomSeed}.svg?options[hatColor][]=${hatColor}&option[hairColor]=${hairColor}&opiton[cloths]=${cloths}&option[eyes]=${eyes}`;
-		}
-		if (this.sprite == this.sprites[6]) {
+		}*/
+		if (this.sprite == this.sprites[3]) {
 			let colorSaturation = Math.random();
 			let grayscaleSaturation = Math.random();
 
 			this.url = `https://avatars.dicebear.com/v2/${this.sprite}/${this.randomSeed}.svg?options[background]=#333&options[colorSaturation]=${colorSaturation}&option[grayscaleSaturation]=${grayscaleSaturation}`;
 		}
-		if (this.sprite == this.sprites[7]) {
+		if (this.sprite == this.sprites[4]) {
 			this.url = `https://avatars.dicebear.com/v2/${this.sprite}/${this.randomSeed}.svg&option[colorful]=1`;
 		}
 	}
