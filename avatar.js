@@ -1,16 +1,17 @@
 function getRandomInt(max) {
 	return Math.floor(Math.random() * Math.floor(max));
 }
+
 class Avatar {
 	constructor() {
-		this.sprites = [
-			'male',
-			'identicon',
-			'bottts',
-			'jdenticon',
-			'gridy'
-		]; //"human", "avataaars", "female"];
-		this.moods = ['happy', 'sad', 'suprised'];
+		this.sprites = { 
+			male: 'male',
+      identicon : 'identicon',
+			bottts: 'bottts',
+			jdenticon :'jdenticon',
+			gridy : 'gridy'
+    };
+    this.moods = ['happy', 'sad', 'surprised'];
 		this.colors = [
 			'amber',
 			'blue',
@@ -40,84 +41,93 @@ class Avatar {
 		this.setOptionsAndUrl();
 	}
 	selectSprite() {
-		this.sprite = this.sprites[getRandomInt(this.sprites.length)];
+    let len = Object.keys(this.sprites).length;
+    let type = Object.keys(this.sprites)[getRandomInt(len)];
+    this.sprite = this.sprites[type];
 		console.log(this.sprite);
 	}
 	setOptionsAndUrl() {
-		if (
-			this.sprite == this.sprites[0]
-		) {
-			let mood = this.moods[getRandomInt(this.moods.length)];
-			this.url = `https://avatars.dicebear.com/v2/${this.sprite}/${this.randomSeed}.svg?options[mood][]=${mood}`;
-		}
-		if (this.sprite == this.sprites[1]) {
-			let rndColor = this.colors[getRandomInt(this.colors.length)];
-			let rndColorLevel = this.colorLevel[getRandomInt(this.colorLevel.length)];
+    switch(this.sprite){
+      case (this.sprites.male): {
+        let mood = this.moods[getRandomInt(this.moods.length)];
+        this.url = `https://avatars.dicebear.com/v2/${this.sprite}/${this.randomSeed}.svg?options[mood][]=${mood}`;
+        break;
+      }
+      case (this.sprites.identicon): {
+        let rndColor = this.colors[getRandomInt(this.colors.length)];
+        let rndColorLevel = this.colorLevel[getRandomInt(this.colorLevel.length)];
 
-			this.url = `https://avatars.dicebear.com/v2/${this.sprite}/${this.randomSeed}.svg?options[colors][]=${rndColor}&options[colorLevel]=${rndColorLevel}`;
-		}
-		if (this.sprite == this.sprites[2]) {
-			let rndColor = this.colors[getRandomInt(this.colors.length)];
-			let colorful = true;
-			let mouthChance = Math.random() * 100;
-			let sidesChance = Math.random() * 100;
-			let textureChance = Math.random() * 100;
-			let topChange = Math.random() * 100;
-			this.url = `https://avatars.dicebear.com/v2/${this.sprite}/${this.randomSeed}.svg?options[colors][]=${rndColor}&option[mouthChance]=${mouthChance}&opiton[sidesChance]=${sidesChance}&option[textureChance]=${textureChance}&option[topChance]=${topChange}`;
-		}
-		/*if (this.sprite == this.sprites[5]) {
-			let hatColors = [
-				'black',
-				'blue',
-				'gray',
-				'heather',
-				'pastel',
-				'pink',
-				'red',
-				'white'
-			];
-			let hairColors = [
-				'auburn',
-				'black',
-				'blonde',
-				'brown',
-				'pastel',
-				'platinum',
-				'red',
-				'gray'
-			];
-			let clothss = ['blazer', 'sweater', 'shirt', 'hoodie', 'overall'];
-			let eyess = [
-				'close',
-				'cry',
-				'default',
-				'dizzy',
-				'roll',
-				'happy',
-				'hearts',
-				'side',
-				'squint',
-				'surprised',
-				'wink',
-				'winkWacky'
-			];
-			let hatColor = hatColors[getRandomInt(hatColors.length)];
-			let hairColor = hairColors[getRandomInt(hairColors.length)];
-			let cloths = clothss[getRandomInt(clothss.length)];
-			let eyes = eyess[getRandomInt(eyess.length)];
+        this.url = `https://avatars.dicebear.com/v2/${this.sprite}/${this.randomSeed}.svg?options[colors][]=${rndColor}&options[colorLevel]=${rndColorLevel}`;
+        break;
+      }
+      case (this.sprites.bottts): {
+        let rndColor = this.colors[getRandomInt(this.colors.length)];
+        let colorful = true;
+        let mouthChance = Math.random() * 100;
+        let sidesChance = Math.random() * 100;
+        let textureChance = Math.random() * 100;
+        let topChange = Math.random() * 100;
+        this.url = `https://avatars.dicebear.com/v2/${this.sprite}/${this.randomSeed}.svg?options[colors][]=${rndColor}&option[mouthChance]=${mouthChance}&opiton[sidesChance]=${sidesChance}&option[textureChance]=${textureChance}&option[topChance]=${topChange}`;
+        break;
+      }
+      /*case (this.sprites.avataaar) :{
+        let hatColors = [
+          'black',
+          'blue',
+          'gray',
+          'heather',
+          'pastel',
+          'pink',
+          'red',
+          'white'
+        ];
+        let hairColors = [
+          'auburn',
+          'black',
+          'blonde',
+          'brown',
+          'pastel',
+          'platinum',
+          'red',
+          'gray'
+        ];
+        let clothss = ['blazer', 'sweater', 'shirt', 'hoodie', 'overall'];
+        let eyess = [
+          'close',
+          'cry',
+          'default',
+          'dizzy',
+          'roll',
+          'happy',
+          'hearts',
+          'side',
+          'squint',
+          'surprised',
+          'wink',
+          'winkWacky'
+        ];
+        let hatColor = hatColors[getRandomInt(hatColors.length)];
+        let hairColor = hairColors[getRandomInt(hairColors.length)];
+        let cloths = clothss[getRandomInt(clothss.length)];
+        let eyes = eyess[getRandomInt(eyess.length)];
 
-			this.url = `https://avatars.dicebear.com/v2/${this.sprite}/${this.randomSeed}.svg?options[hatColor][]=${hatColor}&option[hairColor]=${hairColor}&opiton[cloths]=${cloths}&option[eyes]=${eyes}`;
-		}*/
-		if (this.sprite == this.sprites[3]) {
-			let colorSaturation = Math.random();
-			let grayscaleSaturation = Math.random();
+        this.url = `https://avatars.dicebear.com/v2/${this.sprite}/${this.randomSeed}.svg?options[hatColor][]=${hatColor}&option[hairColor]=${hairColor}&opiton[cloths]=${cloths}&option[eyes]=${eyes}`;
+        break;
+      }*/
+      case (this.sprites.jdenticon) : {
+        let colorSaturation = Math.random();
+        let grayscaleSaturation = Math.random();
 
-			this.url = `https://avatars.dicebear.com/v2/${this.sprite}/${this.randomSeed}.svg?options[background]=#333&options[colorSaturation]=${colorSaturation}&option[grayscaleSaturation]=${grayscaleSaturation}`;
-		}
-		if (this.sprite == this.sprites[4]) {
-			this.url = `https://avatars.dicebear.com/v2/${this.sprite}/${this.randomSeed}.svg&option[colorful]=1`;
-		}
+        this.url = `https://avatars.dicebear.com/v2/${this.sprite}/${this.randomSeed}.svg?options[background]=#333&options[colorSaturation]=${colorSaturation}&option[grayscaleSaturation]=${grayscaleSaturation}`;
+        break;
+      }
+      case (this.sprites.gridy) : {
+        this.url = `https://avatars.dicebear.com/v2/${this.sprite}/${this.randomSeed}.svg`;
+        break;
+      }
+    }
 	}
 }
-
+let a = new Avatar();
+console.log(a);
 module.exports = Avatar;
