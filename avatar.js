@@ -128,6 +128,5 @@ class Avatar {
     }
 	}
 }
-let a = new Avatar();
-console.log(a);
+
 module.exports = Avatar;
