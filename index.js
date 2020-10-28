@@ -1,10 +1,10 @@
 const Twit = require("twit");
 const axios = require("axios");
-const dotenv = require("dotenv");
+/*const dotenv = require("dotenv");
 let result = dotenv.config()
 if (result.error)
     throw result.error
-
+*/
 const svgToImg = require("svg-to-img");
 const Avatar = require("./avatar.js")
 
